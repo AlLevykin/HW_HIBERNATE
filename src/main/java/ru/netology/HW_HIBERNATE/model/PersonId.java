@@ -4,11 +4,13 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.io.Serializable;
-
+@NoArgsConstructor
 @AllArgsConstructor
-public class PersonId implements Serializable {
+@Setter
+public class PersonId {
     @NotBlank
     private String name;
     @NotBlank
@@ -16,4 +18,16 @@ public class PersonId implements Serializable {
     @Min(0)
     @Max(120)
     private int age;
+
+    public @NotBlank String getName() {
+        return this.name;
+    }
+
+    public @NotBlank String getSurname() {
+        return this.surname;
+    }
+
+    public @Min(0) @Max(120) int getAge() {
+        return this.age;
+    }
 }

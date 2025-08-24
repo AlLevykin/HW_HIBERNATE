@@ -1,13 +1,17 @@
 package ru.netology.HW_HIBERNATE.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
 import jakarta.validation.constraints.Pattern;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "persons")
-@Data
+@Setter
 public class Person {
 
     @EmbeddedId
@@ -19,4 +23,16 @@ public class Person {
 
     @Column(name = "city_of_living")
     private String cityOfLiving;
+
+    public PersonId getPersonId() {
+        return this.personId;
+    }
+
+    public @Pattern(regexp = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$") String getPhoneNumber() {
+        return this.phoneNumber;
+    }
+
+    public String getCityOfLiving() {
+        return this.cityOfLiving;
+    }
 }
