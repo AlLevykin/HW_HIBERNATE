@@ -6,6 +6,7 @@ import ru.netology.HW_HIBERNATE.model.PersonId;
 import ru.netology.HW_HIBERNATE.repository.PersonRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PersonService {
@@ -41,5 +42,9 @@ public class PersonService {
 
     public List<Person> getPersonsYoungerThan(int age) {
         return personRepository.findAllByPersonIdAgeLessThanOrderByPersonIdAge(age);
+    }
+
+    public Optional<List<Person>> getNamesakes(String name, String surname) {
+        return personRepository.findAllByPersonIdNameAndPersonIdSurname(name, surname);
     }
 }

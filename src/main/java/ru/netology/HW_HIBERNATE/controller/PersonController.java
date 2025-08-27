@@ -7,6 +7,7 @@ import ru.netology.HW_HIBERNATE.model.PersonId;
 import ru.netology.HW_HIBERNATE.service.PersonService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/persons")
@@ -65,5 +66,12 @@ public class PersonController {
     @GetMapping("/younger-than")
     List<Person> getYoungerThan(@RequestParam int age) {
         return service.getPersonsYoungerThan(age);
+    }
+
+    @GetMapping("/namesakes")
+    Optional<List<Person>> getNamesakes(@RequestParam String name,
+                              @RequestParam String surname)
+    {
+        return service.getNamesakes(name, surname);
     }
 }
