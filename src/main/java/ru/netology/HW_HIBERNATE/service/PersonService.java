@@ -38,4 +38,8 @@ public class PersonService {
 
         return storedPerson;
     }
+
+    public List<Person> getPersonsYoungerThan(int age) {
+        return personRepository.findAllByPersonIdAgeLessThanOrderByPersonIdAge(age);
+    }
 }

@@ -61,4 +61,9 @@ public class PersonController {
         PersonId personId = new PersonId(name, surname, age);
         return service.updatePerson(personId, person);
     }
+
+    @GetMapping("/younger-than")
+    List<Person> getYoungerThan(@RequestParam int age) {
+        return service.getPersonsYoungerThan(age);
+    }
 }

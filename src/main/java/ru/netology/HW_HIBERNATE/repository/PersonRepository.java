@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface PersonRepository extends JpaRepository<Person, PersonId>, CustomPersonRepository {
     List<Person> findAllByCity(String city);
+    List<Person> findAllByPersonIdAgeLessThanOrderByPersonIdAge(int age);
 }
